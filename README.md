@@ -1,135 +1,226 @@
-# SmartMeet: An AI-powered Meeting Scheduler with Email Automation
-A smart web app that extracts meeting details from natural language, auto-schedules meetings, and sends personalized email invites.
+# 🎯 SmartMeet - AI-Powered Meeting Scheduler
+
+<div align="center">
+
+![SmartMeet](https://img.shields.io/badge/SmartMeet-v1.0.0-blue)
+![React](https://img.shields.io/badge/React-18.2.0-61DAFB?logo=react)
+![Node.js](https://img.shields.io/badge/Node.js-Backend-339933?logo=node.js)
+![Gemini AI](https://img.shields.io/badge/Gemini-AI-4285F4?logo=google)
+
+**Transform natural language into scheduled meetings with AI-powered automation**
+
+*"Schedule a team standup tomorrow at 10 AM on Zoom"* → ✨ Instant meeting + email invites
+
+[Quick Start](#-quick-start) • [Features](#-features) • [Installation](#-installation)
+
+</div>
 
 ---
 
-## Tech Stack
-- **Python 3.10+**
-- **Flask** – Lightweight backend web framework
-- **FastAPI** *(future extension suggested)*
-- **Azure OpenAI (GPT-4o)** – Natural Language Processing
-- **python-dotenv** – Manage secrets via `.env`
-- **Tailwind CSS** – Clean and responsive UI styling
-- **SMTP (Gmail)** – Sending email notifications
+## 🚀 What is SmartMeet?
+
+SmartMeet uses **Google Gemini AI** to understand your natural language meeting requests and automatically:
+- 📅 Parse meeting details (date, time, duration, platform)
+- 📧 Send professional email invitations to all participants
+- 📊 Track meetings and email analytics in a beautiful dashboard
+- 🎨 Provide a modern, responsive interface
+
+**Tech Stack:** React + Node.js + Express + Gemini AI + Nodemailer + Tailwind CSS
 
 ---
 
-## Features
--  Extracts meeting **title, date, time, duration, platform**, and **participants** from plain English
--  Sends email invitations to a list of participants
--  Supports HTML-formatted emails with clickable meeting links
--  Clean Tailwind UI and dynamic status feedback
--  Extensible and modular code (ideal for integrating FastAPI or scheduling tools)
+## ✨ Features
+
+### Core Capabilities
+- 🧠 **AI Scheduling** - Natural language processing for meeting requests
+- 📨 **Auto Email** - Gmail SMTP integration with customizable templates
+- 📅 **Calendar** - Visual timeline of all meetings
+- 📊 **Dashboard** - Real-time analytics and statistics
+- 📝 **Email Logs** - Complete history with delivery tracking
+- ⚙️ **Settings** - User preferences and integrations
+
+### Platform Support
+- Google Meet • Zoom • Microsoft Teams • Custom Links
+
+### Additional Features
+- Smart search and filtering • Responsive design • Activity feed • Secure authentication • Multi-participant support
 
 ---
 
-## Project Structure
-- intelligent-meeting-scheduler/
-- │
-- ├── app.py # Flask app and route logic
-- ├── scheduler.py # Azure OpenAI meeting parser
-- ├── email_utils.py # Email composition and SMTP sending
-- ├── templates/
-- │ └── index.html # Main UI template (Jinja2)
-- ├── static/ # (Optional) For Tailwind custom CSS
-- ├── .env # Environment variables (API keys, secrets)
-- └── README.md # This file
+## 📦 Installation
 
+### Prerequisites
+- Node.js v16+ ([Download](https://nodejs.org/))
+- Gmail account with 2-Step Verification enabled
+- Gemini API key ([Get it free](https://aistudio.google.com/app/apikey))
 
----
+### Setup
 
-## How It Works
+```bash
+# Clone the repository
+git clone https://github.com/Rahulrao859/SmartMeet---An-AI-Powered-Meeting-Schedular.git
+cd SmartMeet---An-AI-Powered-Meeting-Schedular
 
-1. User enters:
-   - Meeting request in natural language
-   - List of participant emails
-2. GPT-4o processes the request via Azure OpenAI API
-3. Extracted details are displayed in the UI
-4. Emails are sent to participants via Gmail SMTP
-5. Email status is reported on-screen
+# Install dependencies
+npm install
+cd backend && npm install && cd ..
 
----
+# Configure environment variables
+# Create .env file in root directory with:
+GEMINI_API_KEY=your_gemini_api_key_here
+EMAIL_USER=your_email@gmail.com
+EMAIL_PASS=your_16_character_app_password
+PORT=5000
+```
 
-## Setup Instructions
-
-### 1. Clone the Repo
-- git clone https://github.com/Shiwam-m/PROJECT_CLG   
-- cd intelligent-meeting-scheduler
+> 📖 **Need detailed setup help?** Check [SETUP_GUIDE.md](SETUP_GUIDE.md)
 
 ---
 
-### 2. Create & Activate Virtual Environment
-- python -m venv venv   
-- source venv/bin/activate  # On Windows: venv\Scripts\activate   
+## 🚀 Quick Start
+
+### Option 1: Automated (Windows)
+```bash
+start.bat
+```
+
+### Option 2: Manual
+
+**Terminal 1 - Backend:**
+```bash
+cd backend
+npm start
+```
+
+**Terminal 2 - Frontend:**
+```bash
+npm run dev
+```
+
+**Access:** localhost:5173
+
+✅ **Success indicators:**
+- Backend: `✓ GEMINI_API_KEY loaded: YES`
+- Frontend: Landing page loads without errors
 
 ---
 
-### 3. Install Dependencies
-- pip install -r requirements.txt
-- requirements.txt should include:
-    - Flask
-    - openai
-    - python-dotenv
+## 💡 Usage
+
+1. Navigate to **AI Scheduler**
+2. Enter your request in natural language:
+   ```
+   Schedule a project review next Monday at 2 PM for 1 hour on Google Meet
+   ```
+3. Add participant emails: `john@example.com, sarah@example.com`
+4. Click **Schedule Meeting**
+5. Done! Meeting created and invitations sent ✨
+
+### Example Prompts
+```
+"Team standup tomorrow at 10 AM for 15 minutes on Zoom"
+"Client presentation Friday at 3 PM for 2 hours on Teams"
+"Quick sync today at 4 PM for 30 minutes"
+```
 
 ---
 
-### 4. Set Up .env File
-- Create a .env file in the root directory:
-    - AZURE_OPENAI_API_KEY=your_azure_api_key
-    - AZURE_OPENAI_ENDPOINT=https://your-resource-name.openai.azure.com/
-    - OPENAI_API_VERSION=2023-12-01-preview
-    - AZURE_OPENAI_DEPLOYMENT_NAME=gpt-4o-mini
+## 📂 Project Structure
+
+```
+SmartMeet-main/
+├── backend/
+│   ├── src/
+│   │   ├── app.js              # Express server
+│   │   ├── controllers/        # Request handlers
+│   │   ├── routes/             # API endpoints
+│   │   └── services/           # AI & Email services
+│   └── package.json
+├── src/
+│   ├── pages/                  # React pages
+│   │   ├── AIScheduler.jsx     # Main scheduling UI
+│   │   ├── Dashboard.jsx       # Analytics
+│   │   ├── Calendar.jsx        # Calendar view
+│   │   └── EmailLogs.jsx       # Email tracking
+│   ├── components/             # Reusable components
+│   └── services/api.js         # API client
+├── .env                        # Configuration
+└── start.bat                   # Quick start script
+```
 
 ---
 
-### 5. Configure Gmail for SMTP
-- Replace sender_email and sender_password in email_utils.py.
-- Use App Passwords instead of your real password:
-- Go to https://myaccount.google.com/security
-- Enable 2FA
-- Generate an App Password (e.g., for "Mail")
+## 🛠️ API Endpoints
+
+```http
+POST /api/meetings/schedule    # Schedule new meeting
+GET  /api/emails/logs          # Get email history
+GET  /api/meetings             # Get all meetings
+GET  /api/health               # Health check
+```
+
+**Base URL:** `localhost:5000/api`
 
 ---
 
-### Run the App
-- python app.py
+## 🐛 Troubleshooting
+
+| Problem | Solution |
+|---------|----------|
+| Cannot connect to server | Ensure backend is running: `cd backend && npm start` |
+| GEMINI_API_KEY loaded: NO | Check `.env` file exists in root directory |
+| Emails not sending | Verify Gmail App Password (16 chars, no spaces) |
+| Port already in use | Kill process: `netstat -ano \| findstr :5000` |
+| Blank page | Clear cache and ensure backend is running |
+
+> 📖 **More help?** See [SETUP_GUIDE.md](SETUP_GUIDE.md) and [QUICK_START.md](QUICK_START.md)
 
 ---
 
-### Sample Prompt
-- Schedule a review meeting with the design team next Tuesday at 10 AM on Zoom. Duration: 45 minutes.
+## 🗺️ Roadmap
+
+**Current Features ✅**
+- AI-powered scheduling • Email automation • Calendar & Dashboard • Analytics • Authentication
+
+**Coming Soon 🚀**
+- Google Calendar API integration • Zoom API • Recurring meetings • Team collaboration • Mobile app • Voice input • Multi-language support
 
 ---
 
-### Sample Email Output
-- Subject: Meeting Scheduled: Review Meeting
-- Hello,
-- Your meeting "Review Meeting" has been scheduled.
-- Date: 2025-10-21
-- Time: 10:00
-- Duration: 45 minutes
-- Platform: Zoom
-- Join Meeting Link
-- Regards,
-- Intelligent Meeting Scheduler
+## 🤝 Contributing
+
+Contributions are welcome! Please:
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push and open a Pull Request
 
 ---
 
-### Security Tips
-- Never commit your .env file or API credentials
-- Use environment variables securely via python-dotenv
-- Rotate App Passwords periodically
+## 📞 Support
+
+- 📧 **Email:** rahulrao1849@gmail.com
+- 🐛 **Issues:** [GitHub Issues](https://github.com/Rahulrao859/SmartMeet---An-AI-Powered-Meeting-Schedular/issues)
+- 📖 **Docs:** [SETUP_GUIDE.md](SETUP_GUIDE.md) • [QUICK_START.md](QUICK_START.md)
 
 ---
 
-### Future Enhancements
-- Transition backend from Flask to FastAPI
-- Google Calendar / Outlook Calendar integration
-- Multi-language support (i18n)
-- Notification & reminder system
-- Meeting clash detection & smart scheduling
+## 📄 License
+
+MIT License - Copyright © 2026 SmartMeet
 
 ---
 
-### License
-- MIT License. Contributions welcome.
+## 🌟 Acknowledgments
+
+Built with ❤️ using [Google Gemini AI](https://ai.google.dev/) • [React](https://react.dev/) • [Tailwind CSS](https://tailwindcss.com/) • [Node.js](https://nodejs.org/)
+
+---
+
+<div align="center">
+
+⭐ **Star this repo if you find it helpful!**
+
+[⬆ Back to Top](#-smartmeet---ai-powered-meeting-scheduler)
+
+</div>
