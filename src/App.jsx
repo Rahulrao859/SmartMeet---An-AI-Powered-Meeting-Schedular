@@ -11,6 +11,8 @@ import Calendar from './pages/Calendar';
 import EmailLogs from './pages/EmailLogs';
 import Activity from './pages/Activity';
 import Settings from './pages/Settings';
+import Newcalender from './pages/Newcalender';
+import Meetings from './pages/Meetings';
 
 function AppContent() {
   const location = useLocation();
@@ -29,9 +31,10 @@ function AppContent() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/ai-scheduler" element={<AIScheduler />} />
-          <Route path="/calendar" element={<Calendar />} />
+          <Route path="/calendar" element={<Newcalender />} />
           <Route path="/email-logs" element={<EmailLogs />} />
           <Route path="/activity" element={<Activity />} />
+          <Route path="/meetings" element={<Meetings />} />
           <Route path="/settings" element={<Settings />} />
         </Routes>
       </div>

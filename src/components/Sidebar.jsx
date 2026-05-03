@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { MdDashboard, MdCalendarToday, MdEmail, MdTimeline, MdSettings, MdHome } from 'react-icons/md';
+import { MdDashboard, MdCalendarToday, MdEmail, MdTimeline, MdSettings, MdHome,MdVideoCall } from 'react-icons/md';
 import { FaRobot } from 'react-icons/fa';
 
 const Sidebar = () => {
@@ -13,6 +13,7 @@ const Sidebar = () => {
         { name: 'Calendar', icon: MdCalendarToday, path: '/calendar' },
         { name: 'Email Logs', icon: MdEmail, path: '/email-logs' },
         { name: 'Activity', icon: MdTimeline, path: '/activity' },
+        { name: 'Meetings', icon: MdVideoCall, path: '/meetings' },
         { name: 'Settings', icon: MdSettings, path: '/settings' },
     ];
 
